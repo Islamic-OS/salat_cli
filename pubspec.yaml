@@ -18,3 +18,4 @@ dependencies:
   dart_inquirer: ^1.0.0
   chalk: ^1.2.0
   ip_geolocation_io: ^1.0.1
+  timezone: ^0.8.0

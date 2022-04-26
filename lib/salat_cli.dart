@@ -1,11 +1,11 @@
-import 'package:adhan_dart/adhan_dart.dart';
 import 'package:chalk/chalk.dart';
-import 'package:intl/intl.dart';
 import 'package:args/args.dart';
 import 'package:dart_inquirer/dart_inquirer.dart';
+import 'package:adhan_dart/adhan_dart.dart';
+import 'package:intl/intl.dart';
 import 'Client.dart';
 
-Future askForMissingArgs() async {
+Future<String> askForMissingArgs() async {
   // final dialog = CLI_Dialog(listQuestions: [
   //   [
   //     {
@@ -47,16 +47,46 @@ void main(List<String> arguments) async {
   );
 
   final parser = ArgParser();
-  parser.addFlag("configure", abbr: "c", help: "Configure Salah Daemon");
-  parser.addFlag("help", abbr: "h", help: "Help");
-  parser.addFlag("today", abbr: "t", help: "See today's Salah timimgs");
+  parser.addFlag("today", abbr: "t", defaultsTo: false);
+  parser.addFlag("configure", abbr: "c", defaultsTo: false);
+  parser.addFlag("help", abbr: "h", defaultsTo: false);
+  parser.addFlag("version", abbr: "v", defaultsTo: false);
 
   // print(arguments);
+
+  Client client = Client();
 
   if (arguments.isEmpty) {
     final action = await askForMissingArgs();
 
-    print(action);
+    switch (action) {
+      case "See today's Salah timimgs":
+        client.today();
+        break;
+      case "Configure Salah Daemon Settings":
+        client.configure();
+        break;
+      case "Help":
+        client.help();
+        break;
+      case "Quit":
+        print(chalk.blue("Allah Hafiz!\n"));
+        break;
+      default:
+        break;
+    }
+  } else {
+    final args = parser.parse(arguments);
+
+    if (args["today"]) {
+      client.today();
+    } else if (args["configure"]) {
+      client.configure();
+    } else if (args["help"]) {
+      client.help();
+    } else if (args["version"]) {
+      print(chalk.green("Adhan CLI version: 1.0.0\n"));
+    }
   }
 
   // final parser = ArgParser();
