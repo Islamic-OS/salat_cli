@@ -36,13 +36,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.1"
-  cli_dialog:
-    dependency: "direct main"
-    description:
-      name: cli_dialog
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.0"
   clock:
     dependency: transitive
     description:
@@ -57,20 +50,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.16.0"
-  dart_console:
+  console:
     dependency: transitive
     description:
-      name: dart_console
+      name: console
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.1.0"
+  dart_inquirer:
+    dependency: "direct main"
+    description:
+      name: dart_inquirer
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
-  ffi:
-    dependency: transitive
-    description:
-      name: ffi
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.1.2"
   http:
     dependency: transitive
     description:
@@ -148,12 +141,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.0"
-  win32:
+  vector_math:
     dependency: transitive
     description:
-      name: win32
+      name: vector_math
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.5.1"
+    version: "2.1.2"
 sdks:
   dart: ">=2.16.1 <3.0.0"
