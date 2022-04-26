@@ -6,8 +6,10 @@ import 'package:chalk/chalk.dart';
 import 'package:timezone/standalone.dart' as tz;
 
 class Client {
+  final clientVersion = "1.0.0";
+
   Future<void> today() async {
-    tz.initializeTimeZone();
+    await tz.initializeTimeZone();
 
     final apiKey = "8a21b90d12d644f99c28d3793ac453c4";
     final geolocation = IpGeoLocationIO(apiKey);
@@ -23,7 +25,7 @@ class Client {
     params.madhab = Madhab.Hanafi;
     final prayerTimes = PrayerTimes(coordinates, date, params, precision: true);
 
-    print(chalk.green("Today's Salah timimgs:\n").bold());
+    print(chalk.green("Today's Salah timimgs:").bold().underLine());
 
     print(chalk.blue("Fajr: ").bold() +
         chalk.green(DateFormat.jm()
@@ -50,7 +52,7 @@ class Client {
   }
 
   void help() {
-    print(chalk.green("Usage: adhan [OPTION]...\n").bold() +
+    print(chalk.green("Usage: salat_cli [OPTION]...\n").bold() +
         chalk.blue("Options:\n") +
         chalk.blue("  -t, --today\n") +
         chalk.blue("  -c, --configure\n") +

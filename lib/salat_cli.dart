@@ -1,9 +1,34 @@
 import 'package:chalk/chalk.dart';
 import 'package:args/args.dart';
 import 'package:dart_inquirer/dart_inquirer.dart';
-import 'package:adhan_dart/adhan_dart.dart';
-import 'package:intl/intl.dart';
+// import 'package:adhan_dart/adhan_dart.dart';
+// import 'package:intl/intl.dart';
 import 'Client.dart';
+
+void greeting() {
+  print("      __     ______   __     __     __     ___    __    " +
+      chalk.green("     _______ __       ________"));
+  print("     /  /\\  |   __  \\|   |  |   |  /  /\\  |   |\\ |   |  " +
+      chalk.green("    /  ____  \\ |     |__    __|"));
+  print("    /  /  \\ |  |  \\  \\   |__|   | /  /  \\ |   | \\|   |  " +
+      chalk.green("   /  /    \\__||        |  |"));
+  print("   /  /_\\  \\|  |   |  |         |/  /_\\  \\|   |  \\   |  " +
+      chalk.green("  |  |      |  |        |  |"));
+  print("  /  _____  \\  |   |  |   __    |  _____  \\   |\\  \\  |  " +
+      chalk.green("  |  |      __ |        |  |"));
+  print(" /  /     \\  \\ |__/  /   |  |   | /     \\  \\  | \\  \\ |  " +
+      chalk.green("   \\  \\____/  ||______ _|  |__"));
+  print("/__/       \\__\\____ /|__ |  |__ |/       \\__\\ |  \\__\\|  " +
+      chalk.green("    \\ ______ /_______ |______ |\n"));
+
+  print(
+      chalk.green("Adhan CLI ${Client().clientVersion}\n").bold().underLine() +
+          "\n");
+
+  print(chalk
+      .blue("As-salamu 'alaykum wa Ra'hmatullaahi wa Barakaatuhu!\n")
+      .bold());
+}
 
 Future<String> askForMissingArgs() async {
   // final dialog = CLI_Dialog(listQuestions: [
@@ -42,9 +67,7 @@ Future<String> askForMissingArgs() async {
 }
 
 void main(List<String> arguments) async {
-  print(
-    chalk.blue("As-salamu alaykum wa Ra'hmatullaahi wa Barakaatuhu!\n").bold(),
-  );
+  greeting();
 
   final parser = ArgParser();
   parser.addFlag("today", abbr: "t", defaultsTo: false);
