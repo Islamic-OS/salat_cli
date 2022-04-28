@@ -1,5 +1,3 @@
-class ConfigWizard {
-  void _startWizard() {
-    // TODO: implement
-  }
+void startWizard() {
+  print('Configuring Salat');
 }
