@@ -2,7 +2,9 @@ import 'package:args/args.dart';
 import 'config_wizard.dart';
 
 class ArgumentParser {
-    final parser = ArgParser();
+  ArgumentParser(List<String> arguments) {
+    final ArgParser parser = ArgParser();
+
     parser.addOption(
       'latitude',
       abbr: 'l',
@@ -10,6 +12,7 @@ class ArgumentParser {
       help:
           'Latitude of your location, (Default: as per ~/.config/salat_cli/config.toml)',
     );
+
     parser.addOption(
       'longitude',
       abbr: 'g',
@@ -17,6 +20,7 @@ class ArgumentParser {
       help:
           'Longitude of your location, (Default: as per ~/.config/salat_cli/config.toml)',
     );
+
     parser.addOption(
       'method',
       abbr: 'm',
@@ -39,12 +43,14 @@ class ArgumentParser {
       ],
       defaultsTo: 'MWL',
     );
+
     parser.addFlag(
       'help',
       abbr: 'h',
       defaultsTo: false,
       help: 'Show this help text',
     );
+
     parser.addFlag(
       'configure',
       abbr: 'c',
@@ -55,7 +61,10 @@ class ArgumentParser {
     if (arguments.contains('--configure')) {
       startWizard();
     }
+
     if (arguments.contains('--help')) {
       print(parser.usage);
       return;
-    }}
+    }
+  }
+}
